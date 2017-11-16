@@ -8,6 +8,15 @@
 #include <errno.h>
 #include <sys/time.h>
 
+
+static struct fuse_operations xmp_oper = {
+  .getattr  = xmp_getattr,
+  .readdir  = xmp_readdir,
+  .open		= xmp_open,
+  .mkdir	= xmp_mkdir,
+  .rename	= xmp_rename,
+};
+
 int main(int argc, char *argv[])
 {
   umask(0);
